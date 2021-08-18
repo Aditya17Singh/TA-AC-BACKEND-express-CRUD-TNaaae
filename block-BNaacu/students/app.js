@@ -12,16 +12,21 @@ mongoose.connect("mongodb://localhost/sample" ,
 
 var app = express();
 
-//middlewares
-app.use(express.json());
+
 
 //setup view engine
 app.set("view engine" , "ejs");
 app.set("views" , path.join(__dirname , "views"));
 
-//routing middleware
-app.use('/students' , require('./routes/student'))
+//middlewares
+app.use(express.urlencoded({extended: false}));
 
+//routing middleware
+
+app.get('/' , (req,res) => {
+    res.render('index.ejs');
+})
+app.use('/student' , require('./routes/student'))
 
 //error handling
 app.use((req,res,next) =>{

@@ -3,21 +3,24 @@ var router = express.Router();
 
 //student routes
 router.get("/new" , (req,res) => {
-    res.send("student form")
+    res.render("student-form")
 })
 
+//post request
+router.post("/" ,  (req,res) => {
+    res.send(req.body)
+})
 //list all the students
 router.get('/' , (req,res) => {
-    var student = ["deepak" , "aditya" , "ankit" , "prashant"];
-    res.render("index" , { student: student })
+    res.render("index" , { student: ["deepak" , "aditya" , "ankit" , "prashant"] })
 })
 
-router.post("/" ,  (req,res) => {
 
-})
-
-router.get("/students:id" , (req,res) => {
-    //capture the book using id
+router.get("/:id" , (req,res) => {
+    res.render('studentDetail' , {
+        student: { name: "rahul", email: "rahul@altcampus.io" },
+    })
+    
 })
 
 
