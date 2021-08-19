@@ -3,7 +3,7 @@ var router = express.Router();
 
 //list all the users
 router.get('/' , (req,res) => {
-    res.render("list" , { user: ["deepak" , "aditya" , "ankit" , "prashant"]})
+    res.render('user.ejs')
 })
 
 //user form
@@ -18,11 +18,19 @@ router.post("/" ,  (req,res) => {
 
 
 router.get("/:id" , (req,res) => {
-    res.render('userDetail' , {
-        user: { name: "rahul", email: "rahul@altcampus.io" },
-    })
-    
+    res.render('singleUser.ejs')
 })
 
+router.get('/:id/edit' , (req,res) => {
+    //edit form
+})
+
+router.put('/:id' , (req,res) => {
+
+})
+
+router.delete('/:id' , (req,res) => {
+
+})
 
 module.exports = router;
