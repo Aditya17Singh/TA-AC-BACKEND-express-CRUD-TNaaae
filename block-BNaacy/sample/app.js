@@ -22,6 +22,10 @@ app.set("views" , path.join(__dirname , "views"));
 //middlewre
 app.use(express.urlencoded({extended: false}));
 
+app.get('/' , (req,res) => {
+    res.render('form.ejs')
+})
+
 //routing middlewares
 app.use('/sample' , indexRouter); 
 

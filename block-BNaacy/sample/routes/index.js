@@ -2,6 +2,9 @@ var express = require('express');
 var router = express.Router();
 var form = require('../model/user')
 
+router.get('/' , (req,res) => {
+    res.render('form.ejs')
+})
 //user form
 router.get("/new" , (req,res) => {
     res.render("form")
@@ -9,9 +12,9 @@ router.get("/new" , (req,res) => {
 
 //post request
 router.post("/" ,  (req,res) => {
-    console.log(req.body);
     form.create(req.body , (err, createdform) => {
-        if(err) return next(err);
+        if(err) return res.redirect('/index/new');
+        res.redirect("/");   
     });
 })
 
