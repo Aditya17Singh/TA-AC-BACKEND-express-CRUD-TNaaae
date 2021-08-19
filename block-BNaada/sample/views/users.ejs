@@ -12,16 +12,16 @@
     </h4>
     <% users.forEach(user => {%> 
         <section>
-            <p>
+            <!-- <p>
                <%= user.name %>
             </p>
             <p>
                <%= user.email %>
-            </p>
+            </p> -->
             <a href="/users/<%= user.id %>">
-                <button>
-                    show
-                </button>
+                <h3>
+                    <%= user.name %>
+                </h3>
             </a>
         </section>
     <% }) %>
