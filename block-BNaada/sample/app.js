@@ -3,7 +3,7 @@ var express = require('express');
 var mongoose = require('mongoose');
 var path = require('path');
 
-var indexRouter = require("./routes/index");
+var userRouter = require("./routes/user");
 
 //connect to db
 mongoose.connect("mongodb://localhost/samples" , 
@@ -27,7 +27,7 @@ app.get('/' , (req,res) => {
 })
 
 //routing middlewares
-app.use('/sample' , indexRouter);
+app.use('/user' , userRouter); 
 
 app.listen(3000 , () => {
     console.log('server is listening on port 3k')
